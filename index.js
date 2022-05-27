@@ -11,11 +11,11 @@
     ...
   ]
 */
-const arrayObjectPegawai = require("./data-customer.json");
+const arrayObjectPegawai = require("./data-customer.json")
 
 function lakukanLooping(arrPegawai) {
   // ! JANGAN DIMODIFIKASI
-  let dataYangAkanDilooping = arrPegawai;
+  let dataYangAkanDilooping = arrPegawai
 
   /*
     TODO 1: Buatlah sebuah variabel bernama "hasilLooping" 
@@ -23,19 +23,25 @@ function lakukanLooping(arrPegawai) {
 
       Contoh: ["Aisyah Nirmala", "Mansur Faisal", ...]
   */
-  let hasilLooping = null;
+  let hasilLooping = dataYangAkanDilooping.map((data) => {
+    return data.namaDepan + " " + data.namaBelakang
+  })
 
   /*
     TODO 2: Buatlah sebuah variabel bernama "jumlahPria"
       yang berisi jumlah pria dari masing masing pegawai
   */
-  let jumlahPria = null;
+  let jumlahPria = dataYangAkanDilooping.filter(
+    (data) => data.jenisKelamin === "M"
+  ).length
 
   /*
     TODO 3: Buatlah sebuah variabel bernama "jumlahWanita"
       yang berisi jumlah wanita dari masing masing pegawai
   */
-  let jumlahWanita = null;
+  let jumlahWanita = dataYangAkanDilooping.filter(
+    (data) => data.jenisKelamin === "F"
+  ).length
 
   /*
     TODO 4: Buatlah sebuah variabel bernama "komentar"
@@ -48,7 +54,17 @@ function lakukanLooping(arrPegawai) {
       Apabila imbang, maka komentar akan berisi:
         "Jumlah Pria dan Wanita berimbang"
   */
-  let komentar = null;
+  let komentarResult = (pria, wanita) => {
+    if (pria > wanita) {
+      return "Jumlah Pria lebih banyak dari Wanita"
+    } else if (wanita > pria) {
+      return "Jumlah Wanita lebih banyak dari Pria"
+    } else {
+      return "Jumlah Pria dan Wanita berimbang"
+    }
+  }
+
+  let komentar = komentarResult(jumlahPria, jumlahWanita)
 
   // ! JANGAN DIMODIFIKASI
   return {
@@ -56,19 +72,19 @@ function lakukanLooping(arrPegawai) {
     jumlahPria,
     jumlahWanita,
     komentar,
-  };
+  }
 }
 
 function main(data) {
-  const hasil = lakukanLooping(data || arrayObjectPegawai);
+  const hasil = lakukanLooping(data || arrayObjectPegawai)
 
-  console.log(hasil.hasilLooping);
-  console.log(hasil.jumlahPria);
-  console.log(hasil.jumlahWanita);
+  console.log(hasil.hasilLooping)
+  console.log(hasil.jumlahPria)
+  console.log(hasil.jumlahWanita)
 
-  return hasil;
+  return hasil
 }
 
-main(arrayObjectPegawai);
+main(arrayObjectPegawai)
 
-module.exports = main;
+module.exports = main
