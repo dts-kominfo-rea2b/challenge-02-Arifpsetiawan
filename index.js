@@ -23,25 +23,47 @@ function lakukanLooping(arrPegawai) {
 
       Contoh: ["Aisyah Nirmala", "Mansur Faisal", ...]
   */
-  let hasilLooping = dataYangAkanDilooping.map((data) => {
-    return data.namaDepan + " " + data.namaBelakang
-  })
+  let hasilLooping = []
+
+  let fullName = (data) => {
+    for (let i = 0; i < data.length; i++) {
+      hasilLooping.push(data[i].namaDepan + " " + data[i].namaBelakang)
+    }
+  }
+
+  fullName(dataYangAkanDilooping)
 
   /*
     TODO 2: Buatlah sebuah variabel bernama "jumlahPria"
       yang berisi jumlah pria dari masing masing pegawai
   */
-  let jumlahPria = dataYangAkanDilooping.filter(
-    (data) => data.jenisKelamin === "M"
-  ).length
+  let jumlahPria = 0
+
+  let hitungPria = (data) => {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].jenisKelamin === "M") {
+        jumlahPria++
+      }
+    }
+  }
+
+  hitungPria(dataYangAkanDilooping)
 
   /*
     TODO 3: Buatlah sebuah variabel bernama "jumlahWanita"
       yang berisi jumlah wanita dari masing masing pegawai
   */
-  let jumlahWanita = dataYangAkanDilooping.filter(
-    (data) => data.jenisKelamin === "F"
-  ).length
+  let jumlahWanita = 0
+
+  let hitungWanita = (data) => {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].jenisKelamin === "F") {
+        jumlahWanita++
+      }
+    }
+  }
+
+  hitungWanita(dataYangAkanDilooping)
 
   /*
     TODO 4: Buatlah sebuah variabel bernama "komentar"
